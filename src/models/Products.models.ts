@@ -22,9 +22,9 @@ export default class ProductsModel {
   }
 
   async findAll(): Promise<IProduct[]> {
-    const [results] = await this.connection.execute<IProduct & RowDataPacket[]>(
+    const [results] = await this.connection.execute<IProduct[] & RowDataPacket[]>(
       'SELECT * FROM Trybesmith.products',
     );
-    return results as unknown as IProduct[];
+    return results;
   }
 }
